@@ -7,13 +7,13 @@ var firebaseConfig = {
     messagingSenderId: "181807286867",
     appId: "1:181807286867:web:4ff30ef1e9161990c994a6"
 };
-  // Initialize Firebase
+
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
 var employeeName;
-var employeeRole = "";
+var employeeRole;
 var startDate;
 var monthsWorked;
 var monthlyRate;
@@ -25,14 +25,11 @@ $("#submit").on("click", function(){
     employeeRole = $("#role").val();
     startDate = $("#start").val();
     monthlyRate = $("#monthly").val();
-    console.log(employeeName)
-    console.log(employeeRole)
-    console.log(startDate)
-    console.log(monthlyRate)
-
     database.ref().push({
         employeeName: employeeName,
-        employeeRole: employeeRole
+        employeeRole: employeeRole,
+        startDate: startDate,
+        monthlyRate: monthlyRate
     });
 })
 
