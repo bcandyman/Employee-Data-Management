@@ -6,14 +6,23 @@
   font-family: "Slabo 27px", serif;
 }
 
-.green{
-  color:white;
+.green {
+  color: white;
   background-color: green;
 }
 
-.container{
+.container {
   width: 80vw;
   height: auto;
   border-style: solid;
-  border-width: .5px;
+  border-width: 0.5px;
+}
+
+body {
+  padding-top: 15px;
+}
+
+.form-group {
+  background: silver;
+  padding: 9px;
 }
