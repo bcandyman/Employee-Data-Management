@@ -44,8 +44,8 @@ database.ref().on("child_added", function(snapshot) {
     var newTblRow = $("<tr>")
     var newTblDataName = $("<td>").html(newTableData.employeeName)
     var newTblDataRole = $("<td>").html(newTableData.employeeRole)
-    var newTblDataStartDate = $("<td>").html(newTableData.employeeStartDate)
-    var newTblDataMonthlyRate = $("<td>").html(newTableData.employeeMonthlyRate)
+    var newTblDataStartDate = $("<td>").html(newTableData.startDate)
+    var newTblDataMonthlyRate = $("<td>").html(newTableData.monthlyRate)
 
     newTblRow.append(newTblDataName)
     newTblRow.append(newTblDataRole)
