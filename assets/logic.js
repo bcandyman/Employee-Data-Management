@@ -7,7 +7,7 @@ var firebaseConfig = {
     messagingSenderId: "181807286867",
     appId: "1:181807286867:web:4ff30ef1e9161990c994a6"
 };
-
+  // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
@@ -25,12 +25,34 @@ $("#submit").on("click", function(){
     employeeRole = $("#role").val();
     startDate = $("#start").val();
     monthlyRate = $("#monthly").val();
+    console.log(employeeName)
+    console.log(employeeRole)
+    console.log(startDate)
+    console.log(monthlyRate)
+
     database.ref().push({
         employeeName: employeeName,
         employeeRole: employeeRole,
         startDate: startDate,
         monthlyRate: monthlyRate
     });
+})
+
+
+database.ref().on("child_added", function(snapshot) {
+    var newTableData = snapshot.val()
+    var newTblRow = $("<tr>")
+    var newTblDataName = $("<td>").html(newTableData.employeeName)
+    var newTblDataRole = $("<td>").html(newTableData.employeeRole)
+    var newTblDataStartDate = $("<td>").html(newTableData.employeeStartDate)
+    var newTblDataMonthlyRate = $("<td>").html(newTableData.employeeMonthlyRate)
+
+    newTblRow.append(newTblDataName)
+    newTblRow.append(newTblDataRole)
+    newTblRow.append(newTblDataStartDate)
+    newTblRow.append(newTblDataMonthlyRate)
+
+    $("tbody").append(newTblRow)
 })
 
 
