@@ -37,4 +37,17 @@ $("#submit").on("click", function(){
 })
 
 
+database.ref().on("child_added", function(snapshot) {
+    var newTableData = snapshot.val()
+    var newTblRow = $("<tr>")
+    var newTblDataName = $("<td>").html(newTableData.employeeName)
+    var newTblDataRole = $("<td>").html(newTableData.employeeRole)
+
+    newTblRow.append(newTblDataName)
+    newTblRow.append(newTblDataRole)
+
+    $("tbody").append(newTblRow)
+})
+
+
 
